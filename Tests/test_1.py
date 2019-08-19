@@ -29,8 +29,11 @@ class TestSteam:
 
     def test_3(self):
         self.action_page.click_top_sellers()
-        time.sleep(5)
+
+    def test_4(self):
+        self.action_page.choose_sellers()
 
     @classmethod
     def teardown_class(cls):
+        time.sleep(5)
         cls.driver.close()
