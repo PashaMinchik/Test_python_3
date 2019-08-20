@@ -8,6 +8,7 @@ from pages.steam_page import HomePage
 from pages.actions_page import ActionsPage
 from pages.birth_time_page import BirthTimePage
 from locators.locators import Locators
+from selenium.webdriver.support.ui import Select
 
 
 class TestSteam:
@@ -36,7 +37,7 @@ class TestSteam:
         self.action_page.max_discount()
 
     def test_5(self):
-        self.birth_time_page.age_choose()
+        self.birth_time_page.choose_birth_time()
 
     @classmethod
     def teardown_class(cls):

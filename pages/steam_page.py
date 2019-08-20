@@ -6,8 +6,6 @@ from locators.locators import Locators
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-#select = Select(driver)
-
 class HomePage:
 
     def __init__(self, driver):

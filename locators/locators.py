@@ -14,3 +14,4 @@ class Locators:
 
     # birth time check
     age_choose = "ageYear"
+    ageMonth = "ageMonth"
