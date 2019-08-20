@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from webdriver_manager.chrome import ChromeDriverManager
 from pages.steam_page import HomePage
 from pages.actions_page import ActionsPage
+from pages.birth_time_page import BirthTimePage
 from locators.locators import Locators
 
 
@@ -15,6 +16,7 @@ class TestSteam:
 
     home_page: HomePage = HomePage(driver)
     action_page: ActionsPage = ActionsPage(driver)
+    birth_time_page: BirthTimePage = BirthTimePage(driver)
 
     @classmethod
     def setup_class(cls):
@@ -31,9 +33,12 @@ class TestSteam:
         self.action_page.click_top_sellers()
 
     def test_4(self):
-        self.action_page.choose_sellers()
+        self.action_page.max_discount()
+
+    def test_5(self):
+        self.birth_time_page.age_choose()
 
     @classmethod
     def teardown_class(cls):
-        time.sleep(5)
+        time.sleep(2)
         cls.driver.close()

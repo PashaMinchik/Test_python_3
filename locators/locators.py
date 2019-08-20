@@ -8,6 +8,9 @@ class Locators:
     actions_click = "//div[@class='responsive_page_template_content']//a[16]"
 
     # actions page
-
     top_sellers = "//div[@id='tab_select_TopSellers']"
-    choose_sellers = "//div[@class='discount_pct']"
+    choose_discounts = "//div[@id='TopSellersRows']//div[@class='discount_pct' and contains(text(),'%')]"
+    click_max_discount = "//div[@id='TopSellersRows']//div[@class='discount_pct' and contains(text(),'%s')]"
+
+    # birth time check
+    age_choose = "ageYear"
