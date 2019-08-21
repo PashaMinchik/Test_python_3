@@ -15,3 +15,4 @@ class Locators:
     # birth time check
     age_choose = "ageYear"
     ageMonth = "ageMonth"
+    open_page_button = "//span[text()='Открыть страницу']"
