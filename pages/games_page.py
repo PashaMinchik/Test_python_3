@@ -9,7 +9,7 @@ class GamesPage:
         self.game_discount = Locators.game_discount
         self.game_final_prise = Locators.game_final_prise
         self.all_trails = []
-        self.game_info = []
+        self.game_info = str
         self.max_discount = []
         self.click_max_discount = Locators.click_max_discount
 
@@ -33,8 +33,7 @@ class GamesPage:
 
     #@property
     def get_info_game(self) -> object:
-        self.game_info.append(self.max_discount)
-        self.game_info.append(self.driver.find_element_by_xpath(self.game_final_prise % self.max_discount).get_attribute("innerText"))
+        self.game_info = self.driver.find_element_by_xpath(self.game_final_prise % self.max_discount).get_attribute("innerText")
         print(self.game_info)
      #   return self.game_info
 
