@@ -1,18 +1,15 @@
 class Locators:
-
     # steam page
 
-    #move_to_games = "//span[@class='pulldown']/a[text()='Игры']"
-    move_to_games = "//div[@id='genre_tab']//a[@class='pulldown_desktop']"
-    #actions_click = "//a[contains(text(),'Экшен')]"
-    actions_click = "//div[@class='responsive_page_template_content']//a[16]"
+    move_to_games: str = "//div[@id='genre_tab']//a[@class='pulldown_desktop']"
+    actions_click: str = "//div[@class='responsive_page_template_content']//a[16]"
+    #actions_click: str = "//a[contains(text(),'Экшен')]"
 
     # actions page
+
     top_sellers = "//div[@id='tab_select_TopSellers']"
     game_discount: str = "//div[@id='TopSellersRows']//div[@class='discount_pct' and contains(text(),'%')]"
     game_final_prise: str = "//div[@class='discount_pct' and contains(text(),'%s')]/.."
-    #game_final_prise: str = "//div[@class='discount_pct' and contains(text(),'%s')]/.."
-    #game1_final_prise: str = "//div[@class='discount_pct' and contains(text(),'%')]/.."
     click_max_discount: str = "//div[@id='TopSellersRows']//div[@class='discount_pct' and contains(text(),'%s')]"
 
     # birth time check
@@ -26,9 +23,6 @@ class Locators:
     game1_base_discount: str = "//div[@class='bundle_base_discount']"
     click_install_button: str = "//a[@class='header_installsteam_btn_content']"
 
-    #install page
+    # install page
+
     stem_install_click: str = "//a[@class='about_install_steam_link']"
-    #save_click: str = ""
-
-
-

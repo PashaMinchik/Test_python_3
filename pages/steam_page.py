@@ -1,7 +1,5 @@
 import time
 
-from webdriver_manager import driver
-from selenium.webdriver.support.ui import Select
 from locators.locators import Locators
 from selenium.webdriver.common.action_chains import ActionChains
 

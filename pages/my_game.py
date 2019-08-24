@@ -21,10 +21,6 @@ class Game:
             print(self.game_info1)
         except NoSuchElementException:
             pass
-
-        #self.game_info1.append(self.driver.find_element_by_xpath(self.game1_prise).get_attribute("innerText"))
-        #print(self.game_info1)
-        #print(self.x)
         print(self.game_info1)
 
     def click_install(self) -> object:
