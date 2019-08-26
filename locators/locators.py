@@ -1,8 +1,13 @@
+
+
 class Locators:
     # steam page
 
     move_to_games: str = "//div[@id='genre_tab']//a[@class='pulldown_desktop']"
     actions_click: str = "//div[@class='responsive_page_template_content']//a[16]"
+    actions_click_en: str = "//div[@class='responsive_page_template_content']//a[7]"
+    check_language_en: str = "//div[@id='genre_tab']//a[@class='pulldown_desktop' and contains(text(),'Games')]"
+    check_language_ru: str = "//div[@id='genre_tab']//a[@class='pulldown_desktop' and contains(text(),'Игры')]"
     #actions_click: str = "//a[contains(text(),'Экшен')]"
 
     # actions page
@@ -15,7 +20,8 @@ class Locators:
     # birth time check
     age_choose: str = "ageYear"
     ageMonth: str = "ageMonth"
-    open_page_button: str = "//span[text()='Открыть страницу']"
+    #open_page_button: str = "//span[text()='Открыть страницу']"
+    open_page_button: str = "//div[@class='main_content_ctn']//a[@class='btnv6_blue_hoverfade btn_medium']//span[1]"
 
     # my game
     game1_prise: str = "//div[@class='discount_final_price']"

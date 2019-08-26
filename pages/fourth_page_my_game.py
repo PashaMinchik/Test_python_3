@@ -1,4 +1,4 @@
-from pages.games_page import GamesPage
+from pages.second_page_games import GamesPage
 from locators.locators import Locators
 from selenium.common.exceptions import NoSuchElementException
 

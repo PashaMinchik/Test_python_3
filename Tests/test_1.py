@@ -1,48 +1,49 @@
-import time
 
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
-import os.path
 
-from pages.games_page import GamesPage
-from pages.birth_time_page import BirthTimePage
-from pages.steam_page import HomePage
-from pages.my_game import Game
-from pages.install_page import Install
+
+from pages.third_page_birth_time import BirthTimePage
+from pages.first_page_steam import HomePage
+from pages.fourth_page_my_game import Game
+from pages.fifth_page_install import Install
+from pages.second_page_games import GamesPage
+from configure.browser_config import BrowserFactory
 
 
 class TestSteam:
-    # driver = BrowserFactory.driver
     driver: WebDriver
     options = webdriver.ChromeOptions()
     preferences = {"download.default_directory": r"C:\Users\p.minchik\Downloads",
                    "directory_upgrade": True,
                    "safebrowsing.enabled": True,
-                   "intl.accept_languages": "ru"}
+                   "intl.accept_languages": "en"}
     options.add_experimental_option("prefs", preferences)
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-
-    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
-    #options = webdriver.FirefoxOptions()
 
     @classmethod
     def setup_class(cls):
         cls.home_page: HomePage = HomePage(cls.driver)
         cls.game_page: GamesPage = GamesPage(cls.driver)
         cls.birth_time_page: BirthTimePage = BirthTimePage(cls.driver)
-        cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
         cls.game: Game = Game(cls.driver)
         cls.download: Install = Install(cls.driver)
+        cls.driver.implicitly_wait(10)
+        cls.driver.maximize_window()
 
-    @pytest.fixture()
-    def setup_test(self):
-        yield
-        self.driver.implicitly_wait(3)
+
+   #@pytest.fixture(scope="module")
+   #def start_testing(self):
+   #    self.driver = BrowserFactory.start_browser(self, "Chrome")
+   #    self.driver.implicitly_wait(10)
+   #    self.driver.maximize_window()
+
+   #@pytest.fixture()
+   #def setup_test(self):
+   #    yield
+   #    self.driver.implicitly_wait(3)
 
     def test_1(self):
         self.home_page.get_home_page()
@@ -73,8 +74,7 @@ class TestSteam:
     def test_9(self):
         self.download.click_install_again()
         self.download.check_file_and_close_page()
-        print("that's all")
 
     @classmethod
     def teardown_class(cls):
-        cls.driver.close()
+       cls.driver.close()

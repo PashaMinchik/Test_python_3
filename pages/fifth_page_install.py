@@ -1,5 +1,5 @@
 from locators.locators import Locators
-from pages.my_game import Game
+from pages.fourth_page_my_game import Game
 import os.path
 
 
