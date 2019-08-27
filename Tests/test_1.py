@@ -15,35 +15,20 @@ from configure.browser_config import BrowserFactory
 
 class TestSteam:
     driver: WebDriver
-    options = webdriver.ChromeOptions()
-    preferences = {"download.default_directory": r"C:\Users\p.minchik\Downloads",
-                   "directory_upgrade": True,
-                   "safebrowsing.enabled": True,
-                   "intl.accept_languages": "en"}
-    options.add_experimental_option("prefs", preferences)
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     @classmethod
     def setup_class(cls):
+        cls.driver = BrowserFactory.start_browser("ff")
         cls.home_page: HomePage = HomePage(cls.driver)
         cls.game_page: GamesPage = GamesPage(cls.driver)
         cls.birth_time_page: BirthTimePage = BirthTimePage(cls.driver)
         cls.game: Game = Game(cls.driver)
         cls.download: Install = Install(cls.driver)
-        cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
 
-
-   #@pytest.fixture(scope="module")
-   #def start_testing(self):
-   #    self.driver = BrowserFactory.start_browser(self, "Chrome")
-   #    self.driver.implicitly_wait(10)
-   #    self.driver.maximize_window()
-
-   #@pytest.fixture()
-   #def setup_test(self):
-   #    yield
-   #    self.driver.implicitly_wait(3)
+    @pytest.fixture()
+    def setup_test(self):
+        yield
+        self.driver.implicitly_wait(5)
 
     def test_1(self):
         self.home_page.get_home_page()
