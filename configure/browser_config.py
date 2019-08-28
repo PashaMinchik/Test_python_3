@@ -23,7 +23,9 @@ class BrowserFactory:
             options.set_preference("browser.download.manager.showWhenStarting", False)
             options.set_preference("browser.download.dir", r"C:\Users\p.minchik\Downloads")
             options.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                                   "application/msword, application/csv, application/ris, text/csv, image/png, application/pdf, text/html, text/plain, application/zip, application/x-zip, application/x-zip-compressed, application/download, application/octet-stream")
+                                   "application/msword, application/csv, application/ris, text/csv, image/png, "
+                                   "application/pdf, text/html, text/plain, application/zip, application/x-zip, "
+                                   "application/x-zip-compressed, application/download, application/octet-stream")
             BrowserFactory.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
             BrowserFactory.driver.implicitly_wait(10)
             BrowserFactory.driver.maximize_window()
